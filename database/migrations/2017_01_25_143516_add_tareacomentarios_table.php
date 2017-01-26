@@ -16,7 +16,7 @@ class AddTareacomentariosTable extends Migration
             $table->increments('id');
             $table->string('descripcion');
             $table->integer('tarea_id')->unsigned();
-            $table->foreign('tarea_id')->references('id')->on('tarea');
+            $table->foreign('tarea_id')->references('id')->on('tareas');
             $table->integer('user_creador')->unsigned();
             $table->foreign('user_creador')->references('id')->on('users');
             $table->enum('jerarquia',['pichon', 'pro-secretario', 'secretario', 'juez', 'jebus'])->default('pichon');

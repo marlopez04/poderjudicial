@@ -24,7 +24,7 @@ class AddTareasTable extends Migration
             $table->foreign('user_pedidopor')->references('id')->on('users');
             $table->enum('jerarquia',['pichon', 'pro-secretario', 'secretario', 'juez', 'jebus'])->default('pichon');
             $table->enum('importancia',['baja', 'media', 'alta'])->default('baja');
-            $table->enum('estado',['pendiente', 'frenado', 'terminado'])->default('baja');
+            $table->enum('estado',['pendiente', 'frenado', 'terminado'])->default('pendiente');
             $table->timestamps();
         });
     }

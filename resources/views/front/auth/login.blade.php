@@ -12,7 +12,7 @@
   </div>
   <div class="app-cam">
 	{!! Form::open(['route'=>'front.auth.login', 'method' => 'POST']) !!}
-		{!! Form::text('usuario', null,['class' => 'text', 'placeholder' => 'usuario'])!!}
+		{!! Form::text('name', null,['class' => 'text', 'placeholder' => 'usuario'])!!}
 		{!! Form::password('password', ['class' =>'password', 'placeholder' => '*********'])!!}
 		{!! Form::submit('Acceder', ['class' => 'submit'])!!}
 <!--

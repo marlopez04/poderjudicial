@@ -15,7 +15,7 @@ class AddNoticiahistorialTable extends Migration
         Schema::create('noticiahistorial', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('noticia_id')->unsigned();
-            $table->foreign('noticia_id')->references('id')->on('noticia');
+            $table->foreign('noticia_id')->references('id')->on('noticias');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->enum('jerarquia',['pichon', 'pro-secretario', 'secretario', 'juez', 'jebus'])->default('pichon');
