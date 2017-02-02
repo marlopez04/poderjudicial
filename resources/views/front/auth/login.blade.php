@@ -9,10 +9,12 @@
 <body id="login">
   <div class="login-logo">
   		<h2 class="form-heading">Juzgado IV </h2>
+		@include('flash::message')
+		@include('front.partials.errors')
   </div>
   <div class="app-cam">
 	{!! Form::open(['route'=>'front.auth.login', 'method' => 'POST']) !!}
-		{!! Form::text('name', null,['class' => 'text', 'placeholder' => 'usuario'])!!}
+		{!! Form::text('email', null,['class' => 'text', 'placeholder' => 'email'])!!}
 		{!! Form::password('password', ['class' =>'password', 'placeholder' => '*********'])!!}
 		{!! Form::submit('Acceder', ['class' => 'submit'])!!}
 <!--

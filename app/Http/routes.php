@@ -13,22 +13,9 @@
 
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
 
-	Route::resource('users','UsersController');
-
-	Route::get('users/{id}/destroy', [
-		'uses' => 'UsersController@destroy',
-		'as'   => 'admin.users.destroy'
-	]);
-
-	Route::get('/',['as' => 'admin.index', function () {
-    	return view('admin.index');
+	Route::get('/',['as' => 'front.index', function () {
+    	return view('front.index');
 	}]);
-
-	Route::resource('insumos', 'InsumosController');
-	Route::get('insumos/{id}/destroy',[
-		'uses' => 'InsumosController@destroy',
-		'as'   => 'admin.insumos.destroy'
-	]);
 
 });
 
