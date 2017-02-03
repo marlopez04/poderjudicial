@@ -17,6 +17,24 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
     	return view('front.index');
 	}]);
 
+	Route::resource('notificaciones', 'NotificacionesController');
+	Route::get('notificaciones/{id}/destroy',[
+		'uses' => 'NotificacionesController@destroy',
+		'as'   => 'front.notificaciones.destroy'
+	]);
+
+	Route::resource('noticias', 'NoticiasController');
+	Route::get('noticias/{id}/destroy',[
+		'uses' => 'NoticiasController@destroy',
+		'as'   => 'front.noticias.destroy'
+	]);
+
+	Route::resource('tareas', 'TareasController');
+	Route::get('tareas/{id}/destroy',[
+		'uses' => 'TareasController@destroy',
+		'as'   => 'front.tareas.destroy'
+	]);
+
 });
 
 Route::get('front/auth/login', [

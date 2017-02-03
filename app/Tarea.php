@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarea extends Model
 {
-    protected $table = "noticias";
+    protected $table = "tareas";
     protected $fillable = ['titulo','descripcion','user_creador','user_pedidopor','jerarquia','importancia'];
 
     public function user()

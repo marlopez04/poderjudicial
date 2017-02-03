@@ -12,7 +12,7 @@ class AddNoticiahistorialTable extends Migration
      */
     public function up()
     {
-        Schema::create('noticiahistorial', function (Blueprint $table) {
+        Schema::create('noticiahistorials', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('noticia_id')->unsigned();
             $table->foreign('noticia_id')->references('id')->on('noticias');
@@ -30,6 +30,6 @@ class AddNoticiahistorialTable extends Migration
      */
     public function down()
     {
-        Schema::drop('noticiahistorial');
+        Schema::drop('noticiahistorials');
     }
 }

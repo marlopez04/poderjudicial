@@ -8,11 +8,12 @@
 <div class="xs">
 	    <h3>Validation</h3>
 	    <div class="well1 white">
-    <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+  {!! Form::open(['route' => 'front.index', 'method' => 'POST', 'files' => true, 'class' => 'form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern' ]) !!}
+
       <fieldset>
         <div class="form-group">
           <label class="control-label">Required</label>
-          <input type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng-model="model.name" required="">
+      {!! Form::text('required', null, ['class' => 'form-control1 ng-invalid ng-invalid-required ng-touched', 'placeholder' => 'Requerido', 'required'])!!}
         </div>
         <div class="form-group">
           <label class="control-label">Email</label>
@@ -55,11 +56,14 @@
           </select>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
+        {!! Form::Submit('Submit',['class' => 'btn btn-primary']) !!}
+        {!! Form::Submit('Reset',['class' => 'btn btn-default']) !!}
+<!--        
           <button type="reset" class="btn btn-default">Reset</button>
+-->
         </div>
       </fieldset>
-    </form>
+{!! Form::close() !!}
   </div>
 </div>
 </div>

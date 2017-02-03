@@ -24,7 +24,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['username','nombre','email','password','type','jerarquia'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -32,4 +32,50 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function noticias()
+    {
+        return $this->hasMany('App\Noticia');
+    }
+
+    public function noticiacomentarios()
+    {
+        return $this->hasMany('App\NoticiaComentario');
+    }
+
+    public function noticiahistorial()
+    {
+        return $this->hasMany('App\NoticiaHistorial');
+    }
+
+    public function notificaciones()
+    {
+        return $this->hasMany('App\Notificacion');
+    }
+
+    public function notificacionhistorials()
+    {
+        return $this->hasMany('App\NotificacionHistorial');
+    }
+
+    public function notificacionrespuestas()
+    {
+        return $this->hasMany('App\Notificacionrespuesta');
+    }
+
+    public function tareas()
+    {
+        return $this->hasMany('App\Tarea');
+    }
+
+    public function tareacomentarios()
+    {
+        return $this->hasMany('App\TareaComentario');
+    }
+
+    public function tareahistorials()
+    {
+        return $this->hasMany('App\TareaHistorial');
+    }
+
 }

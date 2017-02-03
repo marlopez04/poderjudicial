@@ -1172,6 +1172,33 @@ select[multiple] {
 	background:#fff;
 	padding:2em;
 }
+.well1-noticias{
+  background:#8888FF;
+  padding:2em;
+}
+
+.well1-tareas{
+  background:#FF8888;
+  padding:2em;
+}
+
+.well1-notificaciones{
+  background:#FFFF88;
+  padding:2em;
+}
+
+.xs-noticias{
+  background:#8888FF;
+}
+
+.xs-tareas{
+  background:#FF8888;
+}
+
+.xs-notificaciones{
+  background:#FFFF88;
+}
+
 /*-- Basic_tables --*/
 .bs-example1{
   background:#fff;

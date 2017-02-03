@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TareaComentario extends Model
 {
-    protected $table = "noticias";
+    protected $table = "tareacomentario";
     protected $fillable = ['titulo','descripcion','user_creador','user_pedidopor','jerarquia','importancia'];
 
     public function user()

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NotificacionRespuesta extends Model
 {
-    protected $table = "noticias";
+    protected $table = "noticiarespuestas";
     protected $fillable = ['titulo','descripcion','user_creador','user_pedidopor','jerarquia','importancia'];
 
     public function user()

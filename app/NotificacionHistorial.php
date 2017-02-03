@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NotificacionHistorial extends Model
 {
-    protected $table = "notificacionhistorial";
+    protected $table = "notificacionhistorials";
     protected $fillable = ['notificacion_id','user_id','jerarquia'];
 
     public function user()

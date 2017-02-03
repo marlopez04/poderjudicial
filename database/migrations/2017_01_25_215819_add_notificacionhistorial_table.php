@@ -12,7 +12,7 @@ class AddNotificacionhistorialTable extends Migration
      */
     public function up()
     {
-        Schema::create('notificacionhistorial', function (Blueprint $table) {
+        Schema::create('notificacionhistorials', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('notificacion_id')->unsigned();
             $table->foreign('notificacion_id')->references('id')->on('notificaciones');
@@ -30,6 +30,6 @@ class AddNotificacionhistorialTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notificacionhistorial');
+        Schema::drop('notificacionhistorials');
     }
 }

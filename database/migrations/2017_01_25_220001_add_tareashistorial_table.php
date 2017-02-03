@@ -12,7 +12,7 @@ class AddTareashistorialTable extends Migration
      */
     public function up()
     {
-        Schema::create('tareahistorial', function (Blueprint $table) {
+        Schema::create('tareahistorials', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tarea_id')->unsigned();
             $table->foreign('tarea_id')->references('id')->on('tareas');
@@ -30,6 +30,6 @@ class AddTareashistorialTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tareahistorial');
+        Schema::drop('tareahistorials');
     }
 }

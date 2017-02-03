@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TareaHistorial extends Model
 {
-    protected $table = "noticias";
+    protected $table = "tareahistorial";
     protected $fillable = ['titulo','descripcion','user_creador','user_pedidopor','jerarquia','importancia'];
 
     public function user()
