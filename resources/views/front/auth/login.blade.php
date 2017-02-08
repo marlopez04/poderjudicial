@@ -14,7 +14,7 @@
   </div>
   <div class="app-cam">
 	{!! Form::open(['route'=>'front.auth.login', 'method' => 'POST']) !!}
-		{!! Form::text('email', null,['class' => 'text', 'placeholder' => 'email'])!!}
+		{!! Form::text('username', null,['class' => 'text', 'placeholder' => 'username'])!!}
 		{!! Form::password('password', ['class' =>'password', 'placeholder' => '*********'])!!}
 		{!! Form::submit('Acceder', ['class' => 'submit'])!!}
 <!--
