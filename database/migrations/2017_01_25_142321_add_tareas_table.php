@@ -18,10 +18,8 @@ class AddTareasTable extends Migration
             $table->string('descripcion');
             $table->date('fecha_fin');
             $table->date('fecha_terminado');
-            $table->integer('user_creador')->unsigned();
-            $table->foreign('user_creador')->references('id')->on('users');
-            $table->integer('user_pedidopor')->unsigned();
-            $table->foreign('user_pedidopor')->references('id')->on('users');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users');
             $table->enum('jerarquia',['pichon', 'pro-secretario', 'secretario', 'juez', 'jebus'])->default('pichon');
             $table->enum('importancia',['baja', 'media', 'alta'])->default('baja');
             $table->enum('estado',['pendiente', 'frenado', 'terminado'])->default('pendiente');

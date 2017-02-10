@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNotificacionrespuestasTable extends Migration
+class AddNotificacionusersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,12 @@ class AddNotificacionrespuestasTable extends Migration
      */
     public function up()
     {
-        Schema::create('notificacionrespuestas', function (Blueprint $table) {
+        Schema::create('notificacionusers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion');
             $table->integer('notificacion_id')->unsigned();
             $table->foreign('notificacion_id')->references('id')->on('notificaciones');
-            $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->enum('jerarquia',['pichon', 'pro-secretario', 'secretario', 'juez', 'jebus'])->default('pichon');
-            $table->enum('estado',['enviado', 'leido'])->default('enviado');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class AddNotificacionrespuestasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notificacionrespuestas');
+        Schema::drop('notificacionusers');
     }
 }

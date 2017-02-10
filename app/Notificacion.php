@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Notificacion extends Model
 {
     protected $table = "notificaciones";
-    protected $fillable = ['titulo','descripcion','user_creador','user_pedidopor','jerarquia','importancia', 'estado'];
+    protected $fillable = ['titulo','descripcion','id_user','jerarquia','importancia', 'estado'];
 
     public function user()
     {
-    	return $this->belongsTo('App\User', 'user_creador', 'id');
+    	return $this->belongsTo('App\User', 'id_user', 'id');
     }
 
     public function notificacionrespuestas()

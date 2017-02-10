@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Tarea extends Model
 {
     protected $table = "tareas";
-    protected $fillable = ['titulo','descripcion','user_creador','user_pedidopor','jerarquia','importancia'];
+    protected $fillable = ['titulo','descripcion','id_user','jerarquia','importancia'];
 
     public function user()
     {
-    	return $this->belongsTo('App\User', 'user_creador', 'id');
+    	return $this->belongsTo('App\User', 'id_user', 'id');
     }
 
     public function noticiacomentarios()

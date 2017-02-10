@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Noticia extends Model
 {
     protected $table = "noticias";
-    protected $fillable = ['titulo','descripcion','user_creador','user_pedidopor','jerarquia','importancia'];
+    protected $fillable = ['titulo','descripcion','id_user','jerarquia','importancia'];
 
     public function user()
     {
-    	return $this->belongsTo('App\User', 'user_creador', 'id');
+    	return $this->belongsTo('App\User', 'id_user', 'id');
     }
 
     public function noticiacomentarios()

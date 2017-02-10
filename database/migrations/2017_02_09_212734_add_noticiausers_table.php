@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNoticiacomentariosTable extends Migration
+class AddNoticiausersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,13 @@ class AddNoticiacomentariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('noticiacomentarios', function (Blueprint $table) {
+        Schema::create('noticiasusers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descripcion');
             $table->integer('noticia_id')->unsigned();
             $table->foreign('noticia_id')->references('id')->on('noticias');
-            $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->enum('jerarquia',['pichon', 'pro-secretario', 'secretario', 'juez', 'jebus'])->default('pichon');
-            $table->enum('estado',['enviado', 'leido'])->default('enviado');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('tipo',['involucrado', 'pedido-por', 'creador'])->default('creador');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class AddNoticiacomentariosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('noticiacomentarios');
+        Schema::drop('noticiasusers');
     }
 }

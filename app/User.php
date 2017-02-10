@@ -38,6 +38,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Noticia');
     }
 
+    public function noticiauser()
+    {
+        return $this->hasMany('App\NoticiaUser');
+    }
+
+
     public function noticiacomentarios()
     {
         return $this->hasMany('App\NoticiaComentario');
@@ -60,13 +66,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function notificacionrespuestas()
     {
-        return $this->hasMany('App\Notificacionrespuesta');
+        return $this->hasMany('App\NotificacionRespuesta');
+    }
+
+    public function notificacionuser()
+    {
+        return $this->hasMany('App\NotificacionUser');
     }
 
     public function tareas()
     {
         return $this->hasMany('App\Tarea');
     }
+
+    public function tareauser()
+    {
+        return $this->hasMany('App\TareaUser');
+    }
+
 
     public function tareacomentarios()
     {

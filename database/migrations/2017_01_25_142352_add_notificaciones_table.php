@@ -16,10 +16,8 @@ class AddNotificacionesTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('descripcion');
-            $table->integer('user_creador')->unsigned();
-            $table->foreign('user_creador')->references('id')->on('users');
-            $table->integer('user_pedidopor')->unsigned();
-            $table->foreign('user_pedidopor')->references('id')->on('users');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users');
             $table->enum('jerarquia',['pichon', 'pro-secretario', 'secretario', 'juez', 'jebus'])->default('pichon');
             $table->enum('importancia',['baja', 'media', 'alta'])->default('baja');
             $table->enum('estado',['enviado', 'leido'])->default('enviado');
