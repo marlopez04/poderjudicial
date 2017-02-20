@@ -15,7 +15,7 @@ class AddTareausersTable extends Migration
         Schema::create('tareausers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tarea_id')->unsigned();
-            $table->foreign('tarea_id')->references('id')->on('tarea');
+            $table->foreign('tarea_id')->references('id')->on('tareas');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->enum('tipo',['involucrado', 'pedido-por', 'creador'])->default('creador');
