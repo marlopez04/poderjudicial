@@ -48,12 +48,14 @@
               @endforeach
             </tbody>
           </table>
+            <div class="text-center">
+                {!! $noticias->render() !!}
+            </div>
         </div>
       </div>
 
         </div>
       </fieldset>
-{!! Form::close() !!}
   </div>
 </div>
 </div>

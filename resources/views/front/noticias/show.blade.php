@@ -25,8 +25,30 @@
         </div>
       </div>
 
-        </div>
-      </fieldset>
+<!-- Comentarios  inicio -->
 
-  </div>
+      <div class="well1 white">
+  {!! Form::open(['route' => 'noticiacomentarios.store', 'method' => 'POST', 'files' => true, 'class' => 'form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern' ]) !!}
+
+      <fieldset>
+        <div class="form-group">      
+                    <div class="panel-body">
+                        <div class="alert alert-info">
+                            Si desea agregar un comentario rellene el siguiente casillero.
+                        </div>
+                        <hr>
+                        {!! Form::text('noticia_id', '{{ $noticia->titulo }}', ['class' => 'form-control1 control3', 'placeholder' => 'Titulo', 'required'])!!}
+                        {!! Form::textarea('comentario', null, ['class' => 'form-control1 control2', 'placeholder' => 'Descripcion', 'required'])!!}
+                        <hr>
+                        {!! Form::Submit('Enviar',['class' => 'btn btn-primary']) !!}
+                    </div>
+      </fieldset>
+{!! Form::close() !!}
+
+</div>
+
+</div>
+
+<!-- Comentarios  fin -->
+
 @endsection
