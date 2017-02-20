@@ -60,7 +60,10 @@ class NoticiasController extends Controller
      */
     public function show($id)
     {
-        //
+        $noticia = Noticia::find($id);
+
+        return view('front.noticias.show')
+            ->with('noticia', $noticia);
     }
 
     /**

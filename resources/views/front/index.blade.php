@@ -37,7 +37,7 @@
                         <tr class="info">
                     @endif
                 @endif
-                <td>{{$noticia->id}}</td>
+                <td><a href="{{ route('noticias.show', $noticia->id) }}" class="btn btn-warning"> {{$noticia->id}} </a> </td>
                 <td>{{$noticia->titulo}}</td>
                 <td>{{$noticia->jerarquia}}</td>
                 <td>{{$noticia->importancia}}</td>
