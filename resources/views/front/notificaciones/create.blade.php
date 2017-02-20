@@ -28,6 +28,10 @@
                         {!! Form::text('required', null, ['class' => 'form-control1 control3', 'placeholder' => 'Titulo', 'required'])!!}
                         <label>Pedido por:  </label>
                         {!! Form::select('user_id', $users, null, ['class' => 'form-control1', 'required']) !!}
+                        <label>Jerarquia:  </label>
+                        {!! Form::select('type', ['1' => 'Ingrediente', '2' => 'Insumo'], null, ['class'=> 'tipo'])!!}
+                        <label>Importancia:  </label>
+                        {!! Form::select('type', ['1' => 'Ingrediente', '2' => 'Insumo'], null, ['class'=> 'tipo'])!!}
                         <label>Descripcion de la noticia: </label>
                         {!! Form::textarea('required', null, ['class' => 'form-control1 control2', 'placeholder' => 'Descripcion', 'required'])!!}
                         <hr>

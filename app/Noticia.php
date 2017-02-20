@@ -24,4 +24,9 @@ class Noticia extends Model
         return $this->hasMany('App\NoticiaHistorial');
     }
 
+    public function noticiauser()
+    {
+        return $this->hasMany('App\NoticiaUser');
+    }
+
 }

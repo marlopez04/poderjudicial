@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NoticiaUser extends Model
 {
-   protected $table = "notificaciones";
+   protected $table = "noticiausers";
     protected $fillable = ['id_noticia','id_user','tipo',];
 
     public function user()
@@ -16,7 +16,7 @@ class NoticiaUser extends Model
 
     public function noticia()
     {
-    	return $this->belongsTo('App\User', 'id_user', 'id');
+    	return $this->belongsTo('App\Noticia', 'id_noticia', 'id');
     }
 
 }

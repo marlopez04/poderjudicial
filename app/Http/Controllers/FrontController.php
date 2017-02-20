@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Noticia;
-use App\NoticiaHistorial;
-use App\NoticiaComentario;
-use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Laracasts\Flash\Flash;
+use App\Noticia;
 
-class NoticiasController extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +17,12 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        //
+        $noticias = Noticia::orderBy('id', 'DESC')->paginate(10);
+
+        $noticias->load('user');
+
+        return view('front.index')
+            ->with('noticias', $noticias);
     }
 
     /**
@@ -31,9 +32,7 @@ class NoticiasController extends Controller
      */
     public function create()
     {
-        $users = User::orderBy('nombre', 'ASC')->lists('nombre', 'id');
-        return view('front.noticias.create')
-            ->with('users', $users);
+        //
     }
 
     /**
@@ -44,12 +43,7 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        $noticia = new Noticia($request->all());
-        $noticia -> save();
-
-        Flash::success("Se ha registrado " . $noticia->nombre. " de forma exitosa.");
-        return redirect()->route('front.index');
-
+        //
     }
 
     /**

@@ -11,11 +11,22 @@
 |
 */
 
+
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
 
+	Route::resource('/', 'FrontController');
+
+	Route::get('/', [
+		'as' => 'front.index',
+		'uses' => 'FrontController@index'
+	]);
+
+
+/*
 	Route::get('/',['as' => 'front.index', function () {
     	return view('front.index');
 	}]);
+*/
 
 	Route::resource('notificaciones', 'NotificacionesController');
 	Route::get('notificaciones/{id}/destroy',[
