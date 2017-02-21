@@ -4,6 +4,15 @@
 
 @section('content')
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $('table tr').click(function(){
+        window.location = $(this).data('href');
+        return false;
+    });
+});
+</script>
+
 <div class="col-md-12 graphs">
 <div class="xs">
 	    <h3>Noticias</h3>
@@ -29,12 +38,12 @@
             <tbody>
               @foreach($noticias as $noticia)
                 @if($noticia->importancia == 'alta')
-                    <tr class="danger">
+                    <tr class="danger" data-href="{{ route('noticias.show', $noticia->id) }}">
                 @else
                     @if($noticia->importancia == 'media')
-                        <tr class="warning">
+                        <tr class="warning" data-href="{{ route('noticias.show', $noticia->id) }}">
                     @else
-                        <tr class="info">
+                        <tr class="info" data-href="{{ route('noticias.show', $noticia->id) }}">
                     @endif
                 @endif
                 <td><a href="{{ route('noticias.show', $noticia->id) }}" class="btn btn-warning"> {{$noticia->id}} </a> </td>
