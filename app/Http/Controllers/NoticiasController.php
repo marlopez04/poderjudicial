@@ -63,6 +63,15 @@ class NoticiasController extends Controller
         $noticia = Noticia::find($id);
         $noticia->load('user', 'noticiacomentarios');
 
+        $user_id = \Auth::user()->id;
+
+//        $noticiahistorialr = NoticiaHistorial::where('user_id', '=' ,$user_id)->firstOrFail();
+
+        $noticiahistorial = new NoticiaHistorial();
+        $noticiahistorial->noticia_id = $id;
+        $noticiahistorial->user_id = $user_id;
+        $noticiahistorial -> save();
+
         return view('front.noticias.show')
             ->with('noticia', $noticia);
     }
