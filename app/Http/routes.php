@@ -40,6 +40,12 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
 		'as'   => 'front.noticias.destroy'
 	]);
 
+	Route::resource('noticiacomentarios', 'NoticiaComentariosController');
+	Route::get('noticiacomentarios/{id}/destroy',[
+		'uses' => 'NoticiaComentariosController@destroy',
+		'as'   => 'front.noticiacomentarios.destroy'
+	]);
+
 	Route::resource('tareas', 'TareasController');
 	Route::get('tareas/{id}/destroy',[
 		'uses' => 'TareasController@destroy',

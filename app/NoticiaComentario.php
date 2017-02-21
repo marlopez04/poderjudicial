@@ -16,7 +16,7 @@ class NoticiaComentario extends Model
 
     public function noticia()
     {
-        return $this->belongsTo('App\Noticia');
+        return $this->belongsTo('App\Noticia', 'noticia_id', 'id');
     }
 
 }

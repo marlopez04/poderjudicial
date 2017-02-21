@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Noticia;
-use App\NoticiaHistorial;
-use App\NoticiaComentario;
-use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\NoticiaComentario;
 use Laracasts\Flash\Flash;
 
-class NoticiasController extends Controller
+class NoticiaComentariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,9 +28,7 @@ class NoticiasController extends Controller
      */
     public function create()
     {
-        $users = User::orderBy('nombre', 'ASC')->lists('nombre', 'id');
-        return view('front.noticias.create')
-            ->with('users', $users);
+        //
     }
 
     /**
@@ -44,12 +39,7 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        $noticia = new Noticia($request->all());
-        $noticia -> save();
-
-        Flash::success("Se ha registrado " . $noticia->nombre. " de forma exitosa.");
-        return redirect()->route('front.index');
-
+        //
     }
 
     /**
@@ -60,11 +50,7 @@ class NoticiasController extends Controller
      */
     public function show($id)
     {
-        $noticia = Noticia::find($id);
-        $noticia->load('user', 'noticiacomentarios');
-
-        return view('front.noticias.show')
-            ->with('noticia', $noticia);
+        //
     }
 
     /**
@@ -87,7 +73,13 @@ class NoticiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comentario = new NoticiaComentario($request->all());
+        $comentario->id_user = \Auth::user()->id;
+        $comentario->noticia_id = $id;
+        $comentario -> save();
+
+        return redirect()->route('noticias.show', $id);
+
     }
 
     /**
