@@ -28,10 +28,10 @@
             </thead>
             <tbody>
               @foreach($noticias as $noticia)
-                @if($noticia->importancia == 3)
+                @if($noticia->importancia == 'alta')
                     <tr class="danger">
                 @else
-                    @if($noticia->importancia == 2)
+                    @if($noticia->importancia == 'media')
                         <tr class="warning">
                     @else
                         <tr class="info">
