@@ -1,0 +1,85 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Splendid Countdown Widget Flat Responsive Widget Template :: w3layouts</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Splendid Countdown Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //custom-theme -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome-icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome-icons -->
+<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+</head>
+<body>
+	<div class="main">	
+		<h1>Splendid Countdown Widget</h1>
+		<div class="w3_agile_main_grids">
+			<p class="wthree_para">we are currently working hard on our new awesome website</p>
+			<h2 class="w3layouts w3">we will be live in</h2>
+			<div class="countdown agile">
+				<div class="countdown-time agileits_w3layouts">
+					<ul class="clearfix w3_agileits" id="js-countDown">
+						<li class="item"><i class="day">00</i><span>days</span></li>
+						<li class="blank">:</li>
+						<li class="item"><i class="hour">00</i><span>hours</span></li>
+						<li class="blank">:</li>
+						<li class="item"><i class="minute">00</i><span>minutes</span></li>
+						<li class="blank">:</li>
+						<li class="item"><i class="second">00</i><span>seconds</span></li>
+						<li class="blank">:</li>
+						<li class="item"><i class="ms">00</i><span>millisec</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="agileits_newsletter">
+				<h3>subscribe to our newsletter and get involve about the latest update</h3>
+				<form action="#" method="post">
+					<input type="email" value="Email" name="Email" placeholder="Email" required="">	
+					<input type="submit" value="Subscribe">	
+				</form>
+				<ul class="agileinfo_social_icons w3l">
+					<li><a href="#" class="w3_agileits_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#" class="wthree_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#" class="agileinfo_google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+					<li><a href="#" class="agileits_pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+					<li><a href="#" class="w3ls_rss"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="agileits_copyright">
+			<p>© 2017 Splendid Countdown Widget. All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+		</div>
+	</div>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jQuery.yuukCountdown.js" ></script>
+    <script>
+        $(function(){
+            $('#js-countDown').yuukCountDown({
+                starttime: '2016/12/17 00:00:00',
+                endtime: '2017/3/17 10:59:59',
+                notStartCallBack: function(time){
+                    console.log("Ready");
+                },
+                startCallBack: function(time){
+                    console.log("Running");
+                },
+                endCallBack: function(time){
+                    console.log("Complete");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
