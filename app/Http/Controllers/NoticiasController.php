@@ -61,16 +61,38 @@ class NoticiasController extends Controller
     public function show($id)
     {
         $noticia = Noticia::find($id);
-        $noticia->load('user', 'noticiacomentarios');
 
         $user_id = \Auth::user()->id;
 
-//        $noticiahistorialr = NoticiaHistorial::where('user_id', '=' ,$user_id)->firstOrFail();
+/*
+        $noticiahistorialr = NoticiaHistorial::where('user_id',$user_id);
+
+        $noticiahistorialr = DB::table('noticiahistorials')->where('user_id',$user_id)->first();
+*/
+        $noticiahistorialr = \DB::select('SELECT nh.id, nh.user_id
+                                            FROM noticiahistorials nh
+                                            INNER JOIN noticias ns on ns.id = nh.noticia_id
+                                            inner join users u on u.id = nh.user_id
+                                            WHERE nh.noticia_id = "{$id}" and u.id = "{$user_id}";');
+
+
+        foreach ($noticiahistorialr as $historial){
+/*
+            $historial->delete();
+
+*/
+            $hid = $hostial->id;
+            $noticiahistorialv = NoticiaHistorial::find($hid);
+            $noticiahistorialv->delete();
+        }
 
         $noticiahistorial = new NoticiaHistorial();
         $noticiahistorial->noticia_id = $id;
         $noticiahistorial->user_id = $user_id;
         $noticiahistorial -> save();
+
+
+        $noticia->load('user', 'noticiacomentarios', 'noticiahistorial');
 
         return view('front.noticias.show')
             ->with('noticia', $noticia);

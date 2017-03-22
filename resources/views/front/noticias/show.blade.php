@@ -10,8 +10,20 @@
   background:#8888FF;
 }
 
+#comentario{
+  float: left;
+  width:50%;
+  
+}
+
+#historial{
+  float: right;
+  width:30%;
+}
+
 </style>
 
+<div id="wrapper">
 <div class="col-md-12 graphs" id="divnoticias">
 <div class="xs">
       <h3>Noticia</h3>
@@ -23,34 +35,68 @@
         <div class="panel-body no-padding" style="display: block;">
             {{ $noticia->descripcion }}
         </div>
-      </div>
+  </div>
 
-<!-- Comentarios  inicio -->
 
-      <div class="well1 white">
-  {!! Form::open(['route' => ['noticiacomentarios.update', $noticia->id], 'method' => 'PUT', 'files' => true]) !!}
+</div>
 
-      <fieldset>
-        <div class="form-group">      
-                    <div class="panel-body">
-<!-- comentarios -->                      
+<div class="clearfix"> </div>
+
+<div class="content_bottom">
+
+<div class="col-md-8 span_3">
+  <div class="bs-example1" data-example-id="contextual-table">
+<!-- comentarios -->
+
               @foreach($noticia->noticiacomentarios as $comentario)
-                      <div>
+<!--                      <div> -->
                         <h4>{{$comentario->user->nombre}}</h4>
                         <p> {{$comentario->descripcion}}
-                      </div>
+<!--                      </div> -->
                         <hr>
               @endforeach
+
 <!-- comentarios -->                      
+{!! Form::open(['route' =>['noticiacomentarios.update', $noticia->id], 'method' => 'PUT']) !!}
                         {!! Form::text('descripcion', null, ['class' => 'form-control1 control3', 'placeholder' => 'Escriba su comentario', 'required'])!!}
                         {!! Form::Submit('Enviar',['class' => 'btn btn-primary']) !!}
-                    </div>
-      </fieldset>
+
+<!--      </fieldset> -->
 {!! Form::close() !!}
 
+  </div>
+
+</div>
+
+
+  <div class="col-md-4 span_4">
+    <div class="bs-example1">
+              <table class="table">
+                  <thead>
+                    <th>Usuario</th>
+                    <th>Visita</th>
+                  </thead>
+                  <tbody>
+                    @foreach($noticia->noticiahistorial as $historial)
+                      <tr>
+                        <td>{{ $historial->user->nombre }}</td>
+                        <td>{{ $historial->created_at }}</td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+    </div>
+  </div>
+
+
+</div>
+
+
+
 </div>
 
 </div>
+
 
 <!-- Comentarios  fin -->
 

@@ -4,6 +4,20 @@
 
 @section('content')
 
+<script type="text/javascript">
+
+/*
+$(document).ready(function(){
+    $('table tr').click(function(){
+        window.location = $(this).data('href');
+        return false;
+    });
+});
+
+*/
+
+</script>
+
 <div class="col-md-12 graphs">
 <div class="xs">
 	    <h3>Noticias</h3>
@@ -27,6 +41,25 @@
               </tr>
             </thead>
             <tbody>
+<!--
+                @if($noticia->importancia == 3)
+                    <tr class="danger algo" data-id="{{$noticia->id}}">
+                @else
+                    @if($noticia->importancia == 2)
+                        <tr class="warning algo" data-id="{{$noticia->id}}">
+                    @else
+                        <tr class="info algo" data-id="{{$noticia->id}}">
+                    @endif
+                @if($noticia->importancia == 'alta')
+                    <tr class="danger" data-href="{{ route('noticias.show', $noticia->id) }}">
+                @else
+                    @if($noticia->importancia == 'media')
+                        <tr class="warning" data-href="{{ route('noticias.show', $noticia->id) }}">
+                    @else
+                        <tr class="info" data-href="{{ route('noticias.show', $noticia->id) }}">
+                    @endif
+                @endif
+-->
               @foreach($noticias as $noticia)
               <tr>
                 <td><a href="{{ route('noticias.show', $noticia->id) }}" class="btn btn-warning"> {{$noticia->id}} </a> </td>
@@ -51,5 +84,20 @@
   </div>
 </div>
 </div>
+<script>
+
+/*
+  $(".algo").click(function(){
+
+    var noticia_id = $(this).data('id');
+
+    console.log(noticia_id);
+
+    window.location.replace("http://localhost:8000/noticias/"+noticia_id)
+
+
+  })
+*/
+</script>
 
 @endsection
