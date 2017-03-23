@@ -77,12 +77,20 @@
                     <th>Visita</th>
                   </thead>
                   <tbody>
-                    @foreach($noticia->noticiahistorial as $historial)
+                    @foreach($users as $user)
                       <tr>
-                        <td>{{ $historial->user->nombre }}</td>
-                        <td>{{ $historial->created_at }}</td>
+                        <td>{{ $user->nombre }}</td>
+                        <td>
+                          @foreach($noticia->noticiahistorial as $historial)
+                            @if ($user->id == $historial->user_id)
+                              {{ $historial->created_at }}
+                            @endif
+                          @endforeach
+                        </td>
                       </tr>
                     @endforeach
+<!--
+-->
                   </tbody>
                 </table>
     </div>
