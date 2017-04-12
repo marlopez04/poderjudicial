@@ -10,17 +10,6 @@
   background:#8888FF;
 }
 
-#comentario{
-  float: left;
-  width:50%;
-  
-}
-
-#historial{
-  float: right;
-  width:30%;
-}
-
 </style>
 
 <div id="wrapper">

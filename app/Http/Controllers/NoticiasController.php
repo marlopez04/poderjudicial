@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
 
 class NoticiasController extends Controller
 {
@@ -115,7 +116,62 @@ class NoticiasController extends Controller
      */
     public function edit($id)
     {
-        //
+
+    $noticias = Noticia::find($id);
+    return Response::csv($noticias);
+
+/*
+    $noticias = Noticia::find($id)->toArray();
+    
+    dd($noticias);
+    $filename = "Noticias.csv";
+    $handle = fopen($filename, 'w+');
+    fputcsv($handle, array('descripcion', 'titulo', 'created at'));
+
+    foreach($noticias as $row) {
+        fputcsv($handle, array($row['descripcion'], $row['titulo'], $row['created_at']));
+    }
+
+    fclose($handle);
+
+    $headers = array(
+        'Content-Type' => 'text/csv',
+    );
+
+//    return Response::download($handle, 'Noticias.csv', $headers);
+    return Response::download($filename, 'Noticias.csv', $headers);
+
+*/
+
+/*
+
+    $headers = [
+            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+        ,   'Content-type'        => 'text/csv'
+        ,   'Content-Disposition' => 'attachment; filename=galleries.csv'
+        ,   'Expires'             => '0'
+        ,   'Pragma'              => 'public'
+    ];
+
+    $list = Noticia::find($id);
+
+//    $list = User::all()->toArray();
+
+    # add headers for each column in the CSV download
+//    array_unshift($list, array_keys($list[0]));
+
+   $callback = function() use ($list) 
+    {
+        $FH = fopen('php://output', 'w');
+        foreach ($list as $row) { 
+            fputcsv($FH, $row);
+        }
+        fclose($FH);
+    };
+
+    return Response::stream($callback, 200, $headers);
+*/
+
     }
 
     /**
