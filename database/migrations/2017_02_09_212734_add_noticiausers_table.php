@@ -12,7 +12,7 @@ class AddNoticiausersTable extends Migration
      */
     public function up()
     {
-        Schema::create('noticiasusers', function (Blueprint $table) {
+        Schema::create('noticiausers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('noticia_id')->unsigned();
             $table->foreign('noticia_id')->references('id')->on('noticias');
