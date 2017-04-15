@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\NoticiaComentario;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Noticia;
@@ -17,12 +18,20 @@ class FrontController extends Controller
      */
     public function index()
     {
+        //uso el campo update para controlar el logueo del usuario
+        $user_id = \Auth::user()->id;
+        $user = User::find($user_id);
+
         $noticias = Noticia::orderBy('id', 'DESC')->paginate(10);
 
-        $noticias->load('user');
+        //tengo que probar armar 2 variables (en el controlador) p
+        //ara saber cuales son los leidos y cuantos mensajes tiene cada uno sin leer
+
+        $noticias->load('user', 'noticiahistorial', 'noticiacomentarios');
 
         return view('front.index')
-            ->with('noticias', $noticias);
+            ->with('noticias', $noticias)
+            ->with('user', $user);
     }
 
     /**

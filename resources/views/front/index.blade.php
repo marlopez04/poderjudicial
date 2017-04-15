@@ -24,6 +24,8 @@
                 <th>Descripcion</th>
                 <th>Usuario</th>
                 <th>Fecha</th>
+                <th>comentarios</th>
+                <th>Leido</th>
               </tr>
             </thead>
             <tbody>
@@ -36,6 +38,12 @@
                 <td>{{$noticia->descripcion}}</td>
                 <td>{{$noticia->user->nombre}}</td>
                 <td>{{$noticia->created_at}}</td>
+                <td>{{$noticia->noticiacomentarios->count('id')}}</td>
+                  @foreach ($noticia->noticiahistorial as $historial)
+                    @if ( $user->id == $historial->user_id)
+                      <td>{{$historial->id}}</td>
+                    @endif
+                  @endforeach
               </tr>
               @endforeach
             </tbody>
