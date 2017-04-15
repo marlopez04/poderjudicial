@@ -77,7 +77,7 @@
               <strong>Account</strong>
             </li>
             <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
-            <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
+            <li class="m_2"><a href="{{ route('notificaciones.index')}}"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
             <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> Tasks <span class="label label-danger">42</span></a></li>
             <li><a href="#"><i class="fa fa-comments"></i> Comments <span class="label label-warning">42</span></a></li>
             <li class="dropdown-menu-header text-center">

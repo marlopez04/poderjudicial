@@ -15,6 +15,7 @@ class AddNotificacionesTable extends Migration
         Schema::create('notificaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
+            $table->string('destinatario');
             $table->string('descripcion');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');

@@ -31,10 +31,10 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Notificaciones<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Mensajes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ route('notificaciones.create')}}">Enviar Notificacion</a>
+                                    <a href="{{ route('notificaciones.create')}}">Enviar Nuevo Mensaje</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -6,17 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notificacion extends Model
 {
+    protected $fillable = ['id_user', 'destinatario', 'titulo','descripcion','estado'];
+    
     protected $table = "notificaciones";
-    protected $fillable = ['titulo','descripcion','id_user','jerarquia','importancia', 'estado'];
 
     public function user()
     {
     	return $this->belongsTo('App\User', 'id_user', 'id');
     }
 
-    public function notificacionrespuestas()
+    public function notificacioncomentarios()
     {
-        return $this->hasMany('App\NotificacionRespuesta');
+        return $this->hasMany('App\NotificacionComentario');
     }
 
     public function notificacionhistorial()

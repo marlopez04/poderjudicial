@@ -69,6 +69,13 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function(){
 		'as'   => 'front.notificaciones.destroy'
 	]);
 
+
+	Route::resource('notificacioncomentarios', 'NotificacionComentariosController');
+	Route::get('notificacioncomentarios/{id}/destroy',[
+		'uses' => 'NotificacionComentariosController@destroy',
+		'as'   => 'front.notificacioncomentarios.destroy'
+	]);
+
 	Route::resource('noticias', 'NoticiasController');
 	Route::get('noticias/{id}/destroy',[
 		'uses' => 'NoticiasController@destroy',
